@@ -127,6 +127,8 @@ if ( in_array( 'woocommerce/woocommerce.php' , apply_filters( 'active_plugins', 
 		* @param string $domain
 		* @return string
 		*/
+
+		error_reporting(E_ALL);
 		add_filter('gettext', 'addweb_custom_update_cart_message', 10, 3);
 		function addweb_custom_update_cart_message($translation, $text, $domain) {
 			if ($domain == 'woocommerce') {
@@ -135,8 +137,9 @@ if ( in_array( 'woocommerce/woocommerce.php' , apply_filters( 'active_plugins', 
 						$finalText = (empty($customArr['message_and_notice_text'])) ? 'Cart' : $customArr['message_and_notice_text'];
 						$translation =  $finalText.' updated.';
 				}
-				if($text == "View Cart") {
-					 $finalText = (empty($customArr['view_cart_text'])) ? 'View Cart' : $customArr['view_cart_text'];
+				if($text == "View cart") {
+					
+					 $finalText = (empty($customArr['view_cart_text'])) ? 'View cart' : $customArr['view_cart_text'];
 					 $translation = $finalText;
 				}
 				if($text == "Cart Totals") {
@@ -147,8 +150,8 @@ if ( in_array( 'woocommerce/woocommerce.php' , apply_filters( 'active_plugins', 
 					 $finalText = (empty($customArr['message_and_notice_text'])) ? 'cart' : $customArr['message_and_notice_text'];
 					 $translation = 'Your '. $finalText .' is currently empty.';
 				}
-				if($text == "Update Cart") {
-					 $finalText = (empty($customArr['update_cart_text'])) ? 'Update Cart' : $customArr['update_cart_text'];
+				if($text == "Update cart") {
+					 $finalText = (empty($customArr['update_cart_text'])) ? 'Update cart' : $customArr['update_cart_text'];
 					 $translation = strtoupper($finalText);
 				}
 			}
